@@ -23,9 +23,11 @@ get '/search' do
     % end
   TEMPLATE
   results = conn.exec_params(query, [place])
-  results.each do |row|
-    puts row
-  end
-  output = ERB.new(template, trim_mode: "%<>")
-  output.result(binding)
+  p results
+  # results.each do |row|
+  #   puts row
+  # end
+  # output = ERB.new(template, trim_mode: "%<>")
+  # output.result(binding)
+  'done'
 end
