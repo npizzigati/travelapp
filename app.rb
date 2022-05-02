@@ -4,7 +4,8 @@ require 'sinatra'
 require 'pg'
 require 'erb'
 
-conn = PG.connect(:dbname => 'travelapp')
+# conn = PG.connect(:dbname => 'travelapp')
+conn = PG.connect(ENV['DATABASE_URL'])
 
 get '/' do
   send_file 'index.html'
