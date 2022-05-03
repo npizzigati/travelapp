@@ -12,7 +12,7 @@
 -- - city/town
 -- - country
 -- - title
--- - description
+-- - body
 -- - pictures
 -- - user_id
 
@@ -27,10 +27,10 @@ CREATE TABLE users (
 
 CREATE TABLE reviews (
   id serial PRIMARY KEY,
-  city_town text,
+  city text,
   country text,
   title varchar(50),
-  description text --CHECK (length(description) > 100),--should we have a character limit?
+  body text --CHECK (length(body) > 100),--should we have a character limit?
   -- how do you even save photos?!
   user_id integer NOT NULL REFERENCES users (id) ON DELETE CASCADE
 );
@@ -40,4 +40,8 @@ INSERT INTO users (first_name, last_name, display_name) VALUES ('Leeya', 'Davis'
 INSERT INTO users (first_name, last_name, display_name) VALUES ('Dhana', 'McTavish', 'Day');
 INSERT INTO users (first_name, last_name, display_name) VALUES ('Teresa', 'Garcia', 'Tere');
 
-INSERT INTO reviews (city_town, country, title, description)
+INSERT INTO reviews (city, country, title, body) VALUES ('Guanajuato', 'Mexico', 'Coffee', 'Coffee at Café Tal'),
+                                                        ('Tulum', 'Mexico', 'Park', 'Visit Xel-Ha');
+INSERT INTO reviews (city, country, title, body) VALUES ('Seoul', 'South Korea', 'N Tower', 'Awesome views');
+INSERT INTO reviews (city, country, title, body) VALUES ('Gimje', 'South Korea', 'Small town vibes', 'Quiet and quaint');
+INSERT INTO reviews (city, country, title, body) VALUES ('Kuala Lumpar', 'Malaysia', 'Patronas Towers!', 'Great place to take in the city.');

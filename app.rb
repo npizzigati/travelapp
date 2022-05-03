@@ -14,12 +14,12 @@ end
 get '/search' do
   place = params['place']
   query = <<~QUERY
-    SELECT description FROM reviews
-     WHERE city_town = $1;
+    SELECT body FROM reviews
+     WHERE city = $1;
   QUERY
   template = <<~TEMPLATE
     % results.each do |row|
-      <%= row['recommendation']%>
+      <%= row['body']%>
     % end
   TEMPLATE
   results = conn.exec_params(query, [place])
