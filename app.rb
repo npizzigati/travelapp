@@ -4,12 +4,8 @@ require 'sinatra'
 require 'pg'
 require 'erb'
 
-conn = PG.connect(:dbname => 'travelapp')
-conn.exec('SELECT * from recommendations') do |result|
-  result.each do |row|
-    puts row
-  end
-end
+# conn = PG.connect(:dbname => 'travelapp')
+conn = PG.connect(ENV['DATABASE_URL'])
 
 get '/' do
   send_file 'index.html'
@@ -27,6 +23,7 @@ get '/search' do
     % end
   TEMPLATE
   results = conn.exec_params(query, [place])
+  p results
   results.each do |row|
     puts row
   end
