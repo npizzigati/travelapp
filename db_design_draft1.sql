@@ -30,9 +30,14 @@ CREATE TABLE reviews (
   city_town text,
   country text,
   title varchar(50),
-  description text CHECK (length(text) > 100),--should we have a character limit?
+  description text --CHECK (length(description) > 100),--should we have a character limit?
   -- how do you even save photos?!
-  user_id integer REFERENCES users (id) NOT NULL ON DELETE CASCADE
-
+  user_id integer NOT NULL REFERENCES users (id) ON DELETE CASCADE
 );
 
+INSERT INTO users (first_name, last_name, display_name) VALUES ('Nick', 'Pizzigati', 'Nico');
+INSERT INTO users (first_name, last_name, display_name) VALUES ('Leeya', 'Davis', 'Leelee');
+INSERT INTO users (first_name, last_name, display_name) VALUES ('Dhana', 'McTavish', 'Day');
+INSERT INTO users (first_name, last_name, display_name) VALUES ('Teresa', 'Garcia', 'Tere');
+
+INSERT INTO reviews (city_town, country, title, description)
