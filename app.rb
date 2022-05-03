@@ -14,8 +14,8 @@ end
 get '/search' do
   place = params['place']
   query = <<~QUERY
-    SELECT recommendation FROM recommendations
-     WHERE city = $1;
+    SELECT description FROM reviews
+     WHERE city_town = $1;
   QUERY
   template = <<~TEMPLATE
     % results.each do |row|
