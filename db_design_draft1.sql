@@ -31,7 +31,6 @@ CREATE TABLE reviews (
   country text,
   title varchar(50),
   body text --CHECK (length(body) > 100),--should we have a character limit?
-  -- how do you even save photos?!
   user_id integer NOT NULL REFERENCES users (id) ON DELETE CASCADE
 );
 
