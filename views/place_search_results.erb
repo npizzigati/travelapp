@@ -5,8 +5,8 @@
     <meta charset="utf-8" />
   </head>
   <body>
-    % @results.each do |row|
-      <%= row['body']%>
-    % end
+    <% @results.each do |row| %>
+      <p><%= row['body']%></p>
+    <% end %>
   </body>
 </html>
