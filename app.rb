@@ -14,7 +14,7 @@ end
 get '/search' do
   place = params['place']
   query = <<~QUERY
-    SELECT body, first_name, last_name
+    SELECT body, title, first_name, last_name
     FROM   reviews
     INNER JOIN users ON users.id = reviews.user_id
     WHERE city = $1 OR country = $1;
