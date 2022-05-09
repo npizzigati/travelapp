@@ -15,7 +15,7 @@ get '/search' do
   place = params['place']
   query = <<~QUERY
     SELECT body FROM reviews
-     WHERE city = $1;
+     WHERE city = $1 OR country = $1;
   QUERY
   template = <<~TEMPLATE
     % results.each do |row|
