@@ -5,8 +5,9 @@
     <meta charset="utf-8" />
   </head>
   <body>
+    <h2>Search results:</h2>
     <% @results.each do |row| %>
-      <p><%= row['body']%></p>
+      <p>Recommendation by <%= row['first_name'] %> <%= row['last_name'] %>: <%= row['title']%> — <%= row['body']%></p>
     <% end %>
   </body>
 </html>
