@@ -17,8 +17,8 @@ get '/search' do
     SELECT body, title, first_name, last_name
     FROM   reviews
     INNER JOIN users ON users.id = reviews.user_id
-    WHERE city = $1 OR country = $1;
+    WHERE LOWER(city) = $1 OR LOWER(country) = $1;
   QUERY
-  @results = conn.exec_params(query, [place])
+  @results = conn.exec_params(query, [place.downcase])
   erb :place_search_results
 end
