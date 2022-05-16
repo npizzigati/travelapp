@@ -7,8 +7,10 @@ require 'erb'
 # conn = PG.connect(:dbname => 'travelapp')
 conn = PG.connect(ENV['DATABASE_URL'])
 
-get '/' do
-  send_file 'index.html'
+set :public_folder, 'public'
+
+get "/" do
+  redirect '/index.html'
 end
 
 get '/search' do
