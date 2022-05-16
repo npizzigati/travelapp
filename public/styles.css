@@ -1,3 +1,7 @@
-body {
-    background: no-repeat center/150% url("./images/dave-hoefler-X6d8IKrUM0c-unsplash.jpg");
+html {
+  background: url(./images/dave-hoefler-X6d8IKrUM0c-unsplash.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
