@@ -33,3 +33,27 @@ __Important Questions__
 
 
 #### Building a Backlog
+A backlog defines requirements, which are expressed as *user stories*
+"As a <role> I want to <function description> so I can <value statement>"
+
+User stories consist of 3 types: Sagas, Epics, and Stories
+* Sagas 
+ - big picture requirements, broad in scope that set expectations of app 
+ - multiple Sagas and Stories are based on a single Saga, which is has a long life
+example, 
+- **As a:** end-user **I want to:** use an application that has exceptional performance and responds to my requests within a matter of seconds **So I can:** quickly complete my work and stay focused on my immediate task.
+
+* Epics
+- narrower focus than a Saga but still broad
+- multiple Stories are based on a single Epic, which can last for a few sprints
+exmaple, 
+- **As a:** content-contributor **I want to:** categorize the content I create **So I can:** ensure that readers can easily locate it.
+
+* Stories
+- high-detail description of functionality that can be done in one sprint 
+example,
+**As a:** experienced-end-user **I want to:** Save my work using a command-key sequence **So I can:** Quickly save my work without multiple clicks.
+
+Tip: Treat every page in app as a component and logically organize them based on their dependency.
+
+
