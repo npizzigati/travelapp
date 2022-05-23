@@ -26,7 +26,7 @@ get '/search' do
 end
 
 get '/new-user' do
-  redirect '/new-user.html'
+  erb :new_user
 end
 
 post '/enter-user-details' do
