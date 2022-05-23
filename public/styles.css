@@ -7,5 +7,19 @@ html {
 }
 
 #main-search {
+    display: inline-block;
+    background-color: rgba(110, 190, 218, 0.5);
+    padding: 5px 5px 5px 5px;
+}
 
+#main-search-container {
+    text-align: center;
+    margin: 0 auto;
+    width: 80%;
+}
+
+#main-search-button {
+}
+
+.searchbar {
 }
