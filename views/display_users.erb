@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Users</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <h2>Users:</h2>
+    <% @results.each do |row| %>
+      <p><%= row['first_name'] %> <%= row['last_name'] %> (<%= row['display_name']%>)</p>
+    <% end %>
+  </body>
+</html>
