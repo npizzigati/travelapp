@@ -25,6 +25,10 @@ get '/search' do
   erb :place_search_results
 end
 
+get '/new-user' do
+  redirect '/new-user.html'
+end
+
 post '/enter-user-details' do
   first_name = params['first-name']
   return first_name;
