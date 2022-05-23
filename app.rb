@@ -31,8 +31,8 @@ end
 
 get '/display-users' do
   query = <<~QUERY
-    SELECT first_name, last_name, email
-    FROM   users
+    SELECT first_name, last_name, display_name
+    FROM   users;
   QUERY
   @results = conn.exec_params(query, [])
   erb :display_users
