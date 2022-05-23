@@ -24,3 +24,7 @@ get '/search' do
   @results = conn.exec_params(query, [place.downcase])
   erb :place_search_results
 end
+
+get '/add_recommendation' do
+  erb :add_recommendation
+end
