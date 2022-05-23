@@ -21,5 +21,14 @@ html {
 #main-search-button {
 }
 
+#user-entry-submit {
+    margin: 10px 0 0 0;
+}
+
+.user-detail-inputs {
+    display: block;
+    margin: 10px 0 0 0;
+}
+
 .searchbar {
 }

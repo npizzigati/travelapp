@@ -24,3 +24,8 @@ get '/search' do
   @results = conn.exec_params(query, [place.downcase])
   erb :place_search_results
 end
+
+post '/enter-user-details' do
+  first_name = params['first-name']
+  return first_name;
+end
