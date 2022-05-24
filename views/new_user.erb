@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Travel App - User Details</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div id="user-details-container">
+      <form id="user-details" action="/enter-user-details" method="POST">
+        <input type="text" class="user-detail-inputs" id="first-name" name="first-name" placeholder="First name" required>
+        <input type="text" class="user-detail-inputs" id="last-name" name="last-name" placeholder="Last name" required>
+        <input type="text" class="user-detail-inputs" id="display-name" name="display-name" placeholder="Display name" required>
+        <button type="submit" id="user-entry-submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

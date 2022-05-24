@@ -6,14 +6,16 @@
     <link rel="stylesheet" href="./styles.css">
   </head>
   <body>
-    <form id="main-search" action="/search" method="GET">
-      <label for="place">Where are you going?</label>
-      <input type="text" id="place" name="place" required>
-      <button type="submit">Search</button>
-    </form>
+    <div id="main-search-container">
+      <form id="main-search" action="/search" method="GET">
+        <label for="place">Where are you going?</label>
+        <input type="text" id="place" name="place" required>
+        <button type="submit">Search</button>
+      </form>
+    </div>
     <form action="/add_recommendation" method="GET">
       <label for="recommendation">Have a recommendation you'd like to add?</label>
-      <button type="submit">Add Recommendation</button>
+      <button id="recommendation" type="submit">Add Recommendation</button>
     </form>
   </body>
 </html>

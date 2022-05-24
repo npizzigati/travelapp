@@ -25,6 +25,31 @@ get '/search' do
   erb :place_search_results
 end
 
+get '/new-user' do
+  erb :new_user
+end
+
+get '/display-users' do
+  query = <<~QUERY
+    SELECT first_name, last_name, display_name
+    FROM   users;
+  QUERY
+  @results = conn.exec_params(query, [])
+  erb :display_users
+end
+
+post '/enter-user-details' do
+  first_name = params['first-name']
+  last_name = params['last-name']
+  display_name = params['display-name']
+  query = <<~QUERY
+    INSERT INTO users(first_name, last_name, display_name)
+    VALUES ($1, $2, $3)
+  QUERY
+  @results = conn.exec_params(query, [first_name, last_name, display_name])
+  redirect '/display-users'
+end
+
 get '/add_recommendation' do
   erb :add_recommendation
 end
