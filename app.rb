@@ -49,3 +49,7 @@ post '/enter-user-details' do
   @results = conn.exec_params(query, [first_name, last_name, display_name])
   redirect '/display-users'
 end
+
+get '/add_recommendation' do
+  erb :add_recommendation
+end
