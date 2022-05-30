@@ -6,6 +6,14 @@
     background-size: cover;
 }
 
+#photo-attribution {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(210, 225, 150, 0.8);
+    font-size: 10px;
+}
+
 #main-search {
     display: inline-block;
     background-color: rgba(110, 190, 218, 0.5);
@@ -23,6 +31,10 @@
 
 #user-entry-submit {
     margin: 10px 0 0 0;
+}
+
+.initial-nav {
+    display: block;
 }
 
 .user-detail-inputs {
