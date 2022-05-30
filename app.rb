@@ -4,8 +4,13 @@ require 'sinatra'
 require 'pg'
 require 'erb'
 
-# conn = PG.connect(:dbname => 'travelapp')
-conn = PG.connect(ENV['DATABASE_URL'])
+ENV['APP_ENV'] ||= 'development'
+
+conn = if ENV['DATABASE_URL']
+  PG.connect(ENV['DATABASE_URL'])
+else
+  PG.connect(:dbname => 'travelapp')
+end
 
 set :public_folder, 'public'
 
