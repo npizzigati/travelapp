@@ -3,7 +3,7 @@ require 'bundler/setup'
 require 'sinatra'
 require 'pg'
 require 'erb'
-require 'mailersend-ruby'
+# require 'mailersend-ruby'
 require 'bcrypt'
 
 set :public_folder, 'public'
