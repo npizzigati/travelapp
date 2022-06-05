@@ -6,6 +6,10 @@ require 'erb'
 require 'mailersend-ruby'
 require 'bcrypt'
 
+set :public_folder, 'public'
+
+enable :sessions
+
 ENV['APP_ENV'] ||= 'development'
 
 conn = if ENV['DATABASE_URL']
@@ -13,10 +17,6 @@ conn = if ENV['DATABASE_URL']
 else
   PG.connect(:dbname => 'travelapp')
 end
-
-set :public_folder, 'public'
-
-enable :sessions
 
 get "/" do
   @user_email = session[:email]
@@ -92,8 +92,6 @@ post '/sign-up' do
   QUERY
   @results = conn.exec_params(query, [first_name, last_name, email, display_name, bcrypt_password])
 
-  # Enable this (sending through Mailersend) when we get approval
-  # from Mailersend
   # sendEmail()
 
   redirect '/display-users'
@@ -103,14 +101,14 @@ get '/add_recommendation' do
   erb :add_recommendation
 end
 
-def sendEmail()
-  email = Mailersend::Email.new
-  email.add_recipients("email" => "npizzigati@gmail.com", "name" => "Nick")
-  email.add_from("email" => "noreply@projectbucket.dev", "name" => "noreply")
-  email.add_subject("Test Email")
-  email.add_text("This is a test email")
-  email.add_html("<b>This is a test email</b>")
-  email.send
-end
-
-
+# Enable this (sending through Mailersend) when we get approval
+# from Mailersend
+# def sendEmail()
+#   email = Mailersend::Email.new
+#   email.add_recipients("email" => "npizzigati@gmail.com", "name" => "Nick")
+#   email.add_from("email" => "noreply@projectbucket.dev", "name" => "noreply")
+#   email.add_subject("Test Email")
+#   email.add_text("This is a test email")
+#   email.add_html("<b>This is a test email</b>")
+#   email.send
+# end
