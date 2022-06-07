@@ -62,7 +62,7 @@ post '/sign-in' do
   email = params['email']
   plaintext_password = params['password']
   query = <<~QUERY
-    SELECT encrypted_pw, email, display_name
+    SELECT encrypted_pw, email, display_name, id
     FROM   users
     WHERE  email=$1;
   QUERY
@@ -74,6 +74,7 @@ post '/sign-in' do
   if bcrypt_password == plaintext_password
     session[:email] = results[0]['email']
     session[:display_name] = results[0]['display_name']
+    session[:id] = results[0]['id']
   end
 
   redirect '/'
@@ -99,6 +100,7 @@ end
 
 get '/add_recommendation' do
   erb :add_recommendation
+  user_id = session[:id]
 end
 
 # Enable this (sending through Mailersend) when we get approval
