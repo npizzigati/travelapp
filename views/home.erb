@@ -3,9 +3,18 @@
   <head>
     <title>Travel App</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="/styles.css">
   </head>
   <body id="home">
+    <div id="user-status">
+      <% if @user_email %>
+        <p>Signed in as <%= @user_email %></p>
+        <a class="initial-nav" href="/sign-out">Sign Out</a>
+      <% else %>
+        <a class="initial-nav" href="/sign-up">Sign Up</a>
+        <a class="initial-nav" href="/sign-in">Sign In</a>
+      <% end %>
+    </div>
     <div id="main-search-container">
       <form id="main-search" action="/search" method="GET">
         <label for="place">Where are you going?</label>
@@ -17,8 +26,6 @@
       <label for="recommendation">Have a recommendation you'd like to add?</label>
       <button id="recommendation" type="submit">Add Recommendation</button>
     </form>
-    <a class="initial-nav" href="/sign-up">Sign Up</a>
-    <a class="initial-nav" href="/sign-in">Sign In</a>
     <a class="initial-nav" href="/display-users">Display users</a>
     <footer id="photo-attribution">
       Photo by <a href="https://unsplash.com/@jim_dons?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">James Donaldson</a> on <a href="https://unsplash.com/images/nature/satellite?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
