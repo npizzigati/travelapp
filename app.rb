@@ -99,8 +99,8 @@ post '/sign-up' do
 end
 
 get '/add_recommendation' do
-  erb :add_recommendation
   user_id = session[:id]
+  erb :add_recommendation
 end
 
 # Enable this (sending through Mailersend) when we get approval
