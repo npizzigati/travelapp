@@ -34,3 +34,91 @@ Nick
 
 #### Saga(s)
 **As an** end-user **I want to** use this app to find reliable recommendations, **so I can** find places to go and things to do while traveling to a country of my choosing
+
+
+### OO Design
+1. Write a description of the problem
+Travel App is a social app that helps you find travel recommendations from people you value, your inner circle.
+With this app users can give and find reliable recommendations--by destination or other users--for places to see and things to so in a country of their choice.
+
+2. Extract major nouns and verbs
+Nouns: user, recommendation, destination, country, places to see, things to do
+Verbs: find, give
+
+3. Make an initial guess at organizing the verbs and nouns into methods and classes/modules, then do a spike to explore the problem with temporary code.
+
+User 
+- give (add) recommendations
+- find (search) recommendations
+Recommendation
+- Destination
+  - country
+  - places to see
+  - things to do
+
+```ruby
+class User
+  def initialize
+    # based on schema
+    #   id serial PRIMARY KEY <-- will see what this looks like in RB185
+    #   first_name
+    #   last_name
+    #   display_name
+    #   email
+    #   encrypted_pw
+    #   age_range -- a dropdown box to select '20-30', '30-40' age ranges
+  end
+
+  def add_recommendation;end
+  def edit_recommendation; end
+  def delete_recommendation; end
+  def search_recommendations; end
+end
+
+class Recommendation
+  def initialize
+    #  id serial PRIMARY KEY <-- will see what this looks like in RB185
+    #  title
+    #  author (user_id)
+    #  Destination.new
+    #  Category
+    #   - places to see   <-- rather than a boolean value how about a space separated list of keywords? 
+    #   - things to do    <--
+    #   - food to eat     <--
+    #   - places to stay  <--
+    #   - getting around  <--
+  end
+end
+
+class Destination
+  def initialize
+    #   - country
+    #   - city
+    #   - description
+  end
+end
+```
+
+4. When you have a better idea of the problem, model your thoughts into CRC cards.
+**User**
+- has a last name     - can add recommendation
+- has a first name    - can edit recommendation
+- has an age range    - can delete recommendation
+- has a display name  - can search recommendations
+- has a email         ? can sign-up
+- has a encrypted_pw  ? can sign-in
+                      ? can sign-out
+
+**Recommendation**  collaborator: Destination
+- has a title
+- has an author
+- has a category
+- has a destination
+
+**Destination**
+- has a country
+- has a city
+- has a description
+
+User -|--O< Recommendation
+Destination -|--O< Recommendation
