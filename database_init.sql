@@ -28,21 +28,35 @@ CREATE TABLE users (
 
 CREATE TABLE recommendations (
   id serial PRIMARY KEY,
-  city text,
-  country text,
+  destination_id integer,
   title varchar(50),
   body text, --CHECK (length(body) > 100),--should we have a character limit?
   -- how do you even save photos?!
   user_id integer NOT NULL REFERENCES users (id) ON DELETE CASCADE
+  categories text
 );
+
+CREATE TABLE destination (
+  id serial PRIMARY KEY,
+  city varchar(50),
+  country varchar(50),
+  description varchar(50)
+  )
 
 INSERT INTO users (first_name, last_name, display_name) VALUES ('Nick', 'Pizzigati', 'Nico');
 INSERT INTO users (first_name, last_name, display_name) VALUES ('Leeya', 'Davis', 'Leelee');
 INSERT INTO users (first_name, last_name, display_name) VALUES ('Dhana', 'McTavish', 'Day');
 INSERT INTO users (first_name, last_name, display_name) VALUES ('Teresa', 'Garcia', 'Tere');
 
-INSERT INTO recommendations (user_id, city, country, title, body) VALUES (1, 'Guanajuato', 'Mexico', 'Coffee', 'Coffee at Café Tal'),
-                                                        (1, 'Tulum', 'Mexico', 'Park', 'Visit Xel-Ha');
-INSERT INTO recommendations (user_id, city, country, title, body) VALUES (2, 'Seoul', 'South Korea', 'N Tower', 'Awesome views');
-INSERT INTO recommendations (user_id, city, country, title, body) VALUES (3, 'Rome', 'Italy', 'Big city vibes', 'Loud and busy');
-INSERT INTO recommendations (user_id, city, country, title, body) VALUES (4, 'Kuala Lumpar', 'Malaysia', 'Patronas Towers!', 'Great place to take in the city.');
+INSERT INTO destination (city, country, description) VALUES ('Guanajuato', 'Mexico', '');
+INSERT INTO destination (city, country, description) VALUES ('Tulum', 'Mexico', '');
+INSERT INTO destination (city, country, description) VALUES ('Seoul', 'South Korea', '');
+INSERT INTO destination (city, country, description) VALUES ('Rome', 'Italy', '');
+INSERT INTO destination (city, country, description) VALUES ('Kuala Lumpar', 'Malaysia', '');
+
+INSERT INTO recommendations (user_id, destination_id, title, body)
+VALUES (1, 1, 'Coffee', 'Coffee at Café Tal'),
+       (1, 2, 'Park', 'Visit Xel-Ha'),
+       (2, 3, 'N Tower', 'Awesome views'),
+       (3, 4, 'Big city vibes', 'Loud and busy'),
+       (4, 5, 'Patronas Towers!', 'Great place to take in the city.');
