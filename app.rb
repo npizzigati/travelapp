@@ -30,7 +30,8 @@ get '/search' do
     SELECT body, title, first_name, last_name
     FROM   recommendations
     INNER JOIN users ON users.id = recommendations.user_id
-    WHERE LOWER(city) = $1 OR LOWER(country) = $1;
+    INNER JOIN destinations ON recommendations.destination_id = destinations.id
+    WHERE LOWER(destinations.city) = $1 OR LOWER(destinations.country) = $1;
   QUERY
   @results = conn.exec_params(query, [place.downcase])
   erb :place_search_results
