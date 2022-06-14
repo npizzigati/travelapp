@@ -39,8 +39,7 @@ CREATE TABLE recommendations (
 CREATE TABLE destinations (
   id serial PRIMARY KEY,
   city varchar(50),
-  country varchar(50),
-  description varchar(50)
+  country varchar(50)
   );
 
 INSERT INTO users (first_name, last_name, display_name) VALUES ('Nick', 'Pizzigati', 'Nico');
@@ -48,11 +47,11 @@ INSERT INTO users (first_name, last_name, display_name) VALUES ('Leeya', 'Davis'
 INSERT INTO users (first_name, last_name, display_name) VALUES ('Dhana', 'McTavish', 'Day');
 INSERT INTO users (first_name, last_name, display_name) VALUES ('Teresa', 'Garcia', 'Tere');
 
-INSERT INTO destinations (city, country, description) VALUES ('Guanajuato', 'Mexico', '');
-INSERT INTO destinations (city, country, description) VALUES ('Tulum', 'Mexico', '');
-INSERT INTO destinations (city, country, description) VALUES ('Seoul', 'South Korea', '');
-INSERT INTO destinations (city, country, description) VALUES ('Rome', 'Italy', '');
-INSERT INTO destinations (city, country, description) VALUES ('Kuala Lumpar', 'Malaysia', '');
+INSERT INTO destinations (city, country) VALUES ('Guanajuato', 'Mexico');
+INSERT INTO destinations (city, country) VALUES ('Tulum', 'Mexico');
+INSERT INTO destinations (city, country) VALUES ('Seoul', 'South Korea');
+INSERT INTO destinations (city, country) VALUES ('Rome', 'Italy');
+INSERT INTO destinations (city, country) VALUES ('Kuala Lumpar', 'Malaysia');
 
 INSERT INTO recommendations (user_id, destination_id, title, body)
 VALUES (1, 1, 'Coffee', 'Coffee at Café Tal'),
